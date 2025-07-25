@@ -1,0 +1,62 @@
+Risk Management Parameters (in ImprovedOrderManager):
+self.max_portfolio_risk = 0.15  # Maximum 15% portfolio risk
+self.max_position_risk = 0.03   # Maximum 3% risk per position
+self.stop_loss_percentage = 5.0  # 5% stop loss
+self.trailing_stop_percentage = 3.0  # 3% trailing stop
+
+Profit Taking Parameters (in ImprovedOrderManager):
+self.profit_target_1 = 0.10  # 10% first target
+self.profit_target_2 = 0.20  # 20% second target
+self.profit_target_3 = 0.30  # 30% third target
+self.partial_exit_1 = 0.25   # Exit 25% at first target
+self.partial_exit_2 = 0.25   # Exit 25% at second target
+self.partial_exit_3 = 0.50   # Exit 50% at third target
+
+Position Scaling Parameters (in ImprovedOrderManager):
+self.scale_in_threshold = 0.05  # 5% profit to scale in
+self.scale_in_size = 0.5  # Add 50% of original position size
+self.max_scales = 2  # Maximum number of times to scale in
+self.scale_in_profit_target = 0.15  # 15% profit target for scaled positions
+
+Trading Parameters (in ImprovedOrderManager):
+self.min_trade_interval = 3600  # Minimum time between trades (1 hour)
+self.max_positions = 5  # Maximum number of positions to hold
+
+Technical Analysis Parameters (in ProfessionalTradingEngine):
+self.min_adx_trend = 25  # Minimum trend strength
+self.min_volume_ratio = 1.5  # Volume must be 1.5x average
+self.rsi_oversold = 30
+self.rsi_overbought = 70
+
+Stock Scanning Parameters (in ImprovedNSEDataFetcher):
+# Default stocks to monitor
+self.default_stocks = [
+    "RELIANCE.NS",    # Reliance Industries
+    "HDFCBANK.NS",    # HDFC Bank
+    "TCS.NS",         # Tata Consultancy Services
+    "INFY.NS",        # Infosys
+    "BAJFINANCE.NS",  # Bajaj Finance
+    "ASIANPAINT.NS",  # Asian Paints
+    "TITAN.NS",       # Titan Company
+    "HDFCAMC.NS"      # HDFC AMC
+]
+
+Social Media Scanning Parameters (in SocialMediaStockScanner):
+# Reddit subreddits to scan
+subreddits = ['wallstreetbets', 'stocks', 'investing']
+# Twitter search terms
+search_terms = ['stock', 'invest', 'trading']
+
+Volatility-Based Position Sizing Parameters (in _calculate_volatility_based_size):
+volatility_factor = 1 - (volatility * 5)  # Reduce size by 5x the volatility
+volatility_factor = max(0.2, min(1.0, volatility_factor))  # Keep between 20% and 100%
+
+Market Condition Parameters (in MarketConditionDetector):
+# Market condition thresholds
+current_price > sma_20 * 1.02  # Strong bull market
+current_price < sma_20 * 0.98  # Strong bear market
+volatility > 0.03  # High volatility threshold
+
+Trading Cycle Parameters (in main loop):
+time.sleep(300)  # 5 minutes between cycles
+time.sleep(60)   # 1 minute between retries on error
